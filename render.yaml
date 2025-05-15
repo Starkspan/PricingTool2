@@ -1,0 +1,13 @@
+
+services:
+  - type: web
+    name: preisrechner-backend-profi
+    env: node
+    buildCommand: "npm install"
+    startCommand: "node index.js"
+    envVars:
+      - key: GOOGLE_APPLICATION_CREDENTIALS
+        value: /etc/secrets/vision-key.json
+    secretFiles:
+      - source: vision-key.json
+        destination: /etc/secrets/vision-key.json
